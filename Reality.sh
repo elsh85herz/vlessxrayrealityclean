@@ -7,8 +7,8 @@ export DEBIAN_FRONTEND=noninteractive
 echo "==================================================================="
 echo "|                    Updating and Installing tools                |"
 echo "==================================================================="
-apt update && apt upgrade -y
-apt install qrencode curl wget unzip sudo -y
+apt update
+apt install -y qrencode curl wget unzip sudo
 
 UUID=$(uuidgen)
 USERNAME=$(tr -dc a-z </dev/urandom | head -c 8)
