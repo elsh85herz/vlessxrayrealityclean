@@ -14,4 +14,5 @@
 Выполните в терминале на своём сервере:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/elsh85herz/vlessxrayrealityclean/main/Reality.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/elsh85herz/vlessxrayrealityclean/main/Reality.sh)"
+
