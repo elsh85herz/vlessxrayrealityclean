@@ -13,8 +13,9 @@ apt install qrencode curl wget unzip sudo -y
 UUID=$(uuidgen)
 USERNAME=$(tr -dc a-z </dev/urandom | head -c 8)
 XRAY_DIR="/home/$USERNAME/xray"
-XRAY_URL=$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases/latest | grep browser_download_url | grep linux-64 | cut -d '"' -f 4)
-XRAY_FILE=$(basename "$XRAY_URL")
+XRAY_VERSION=$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases/latest | grep tag_name | cut -d '"' -f 4)
+XRAY_URL="https://github.com/XTLS/Xray-core/releases/download/${XRAY_VERSION}/Xray-linux-64.zip"
+XRAY_FILE="Xray-linux-64.zip"
 SNI="www.google-analytics.com"
 SHORT_ID=$(openssl rand -hex 8)
 
@@ -29,7 +30,7 @@ echo "==================================================================="
 echo "|                    Downloading xray and required files          |"
 echo "==================================================================="
 wget "$XRAY_URL"
-tar -xvzf "$XRAY_FILE"
+unzip "$XRAY_FILE"
 rm "$XRAY_FILE"
 
 echo "==================================================================="
